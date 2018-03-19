@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 		//父进程， 要通过管道读取strace的输出
 		close(fd[1]);	//把父进程的写管道关掉
 		/*---------初步尝试---------*/
-		char buf[1024];
+		char *buf;
 		while(1){
 			ssize_t len = read(fd[0], buf, 1024);
 			if(len > 0)
