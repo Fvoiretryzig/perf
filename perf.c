@@ -51,6 +51,7 @@ int main(int argc, char *argv[]) {
 			strcpy(another_argv[i], argv[i]);
 			
 		for(int i = 1; i<argc; i++){
+			printf("hahah\n");
 			strcpy(argv[i+2], another_argv[i]);
 			printf("argv:%s\n",argv[i+2]);
 		}
