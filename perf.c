@@ -38,10 +38,10 @@ int main(int argc, char *argv[]) {
 	if(pid == 0){
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
 		char *child_argv[100]={"strace","-w","-c", "cat", "-a","","",""};
-		printf("%s\n", child_argv[1]);
+		printf("%s\n", child_argv[3]);
 		char **temp = argv;
 		printf("temp:%s\n", temp[1]);
-		child_argv[3] = *temp[1];
+		strcpy(child_argv[3], temp[1]);
 		printf("3:%s\n", child_argv[3]); 
 		child_argv[5] = NULL;
 		printf("0:%s 1:%s\n", child_argv[0],child_argv[1]);
