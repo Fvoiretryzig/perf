@@ -55,7 +55,8 @@ int main(int argc, char *argv[]) {
 		strcpy(argv[0], "strace");
 		strcpy(argv[1], "-w");
 		strcpy(argv[2], "-c");
-
+		for(int i = 0; i<argc+2; i++)
+			printf("argv[%d]:%s\n", i, argv[i]);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		execvp("strace", argv);
 		//char *child_envp[ ]={"PATH=/bin", NULL};
