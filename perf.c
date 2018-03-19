@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
 		close(fd[0]);
 		
-		char *child_argv[100]; int len = 0;
+		char *child_argv[100]; //int len = 0;
 		//for(int i = 0; i<argc; i++)
 		//	len += strlen(argc[i]);
 		applychar(child_argv, 100);
