@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 	}
 	else{
 		//父进程， 要通过管道读取strace的输出
-		sleep(5);
+		sleep(2);
 		printf("this is father\n");
 		close(fd[1]);	//把父进程的写管道关掉
 		/*---------初步尝试---------*/
