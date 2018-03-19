@@ -41,6 +41,7 @@ int main(int argc, char *argv[]) {
 		strcpy(child_argv[3], argv[1]);
 		printf("3:%s\n", child_argv[3]);
 		char **temp = child_argv;
+		printf("temp:%s\n", temp[1]);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		execvp("strace", temp);
 		close(fd[1]);
