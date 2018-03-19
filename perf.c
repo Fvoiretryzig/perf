@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 		//printf("3:%s\n", child_argv[3]); 
 		child_argv[5] = NULL;
 		printf("%s\n",child_argv[5]);
-		printf("0:%s 1:%s 2:%s", child_argv[0],child_argv[1]);
+		printf("0:%s 1:%s", child_argv[0],child_argv[1]);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		execvp("strace", child_argv);
 		close(fd[1]);
