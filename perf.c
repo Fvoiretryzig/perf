@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
 		char *child_argv[100]={"strace","-w","-c", "cat", "-a","","",""};
 		strcpy(child_argv[3],argv[1]); 
 		child_argv[5] = NULL;
-		
+		printf("0:%s 1:%s\n", child_argv[0],child_argv[1]);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		execvp("strace", child_argv);
 		close(fd[1]);
