@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
 			printf("child_argv[i+2]:%s\n", child_argv[i+2]);
 		}
 		printf("argc:%d\n", argc);
-		chlid_argv[argc+2] = NULL;
+		child_argv[argc+2] = NULL;
 		//strcpy(child_argv[3], "ls");
 		//printf("3:%s\n", child_argv[3]); 
 		child_argv[5] = NULL;
