@@ -11,12 +11,11 @@ struct systemcall
 	char *name;
 };
 struct systemcall syscall[300];
-void do_str(char *s)
-{
-	
+
+void do_str(char *s){
 }
-int main(int argc, char *argv[]) 
-{
+
+int main(int argc, char *argv[]) {
 	/*--------读取命令行参数--------*/
 	for (int i = 0; i < argc; i++) {
 		assert(argv[i]); // specification
@@ -37,8 +36,9 @@ int main(int argc, char *argv[])
 	if(pid == 0){
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
 		char *app="";
-		printf("this is before strcpy\n");
-		strcpy(app, argv[1]);
+		app = argv[1];
+		printf("this is app:%s\n", app);
+		//strcpy(app, argv[1]);
 		
 		for(int i = 1; i<argc; i++)
 			strcat(app, argv[i]);
