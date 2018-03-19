@@ -40,11 +40,10 @@ int main(int argc, char *argv[]) {
 		char *child_argv[100]={"strace","-w","-c", "cat", "-a","","",""};
 		printf("%s\n", child_argv[3]);
 		char **temp = argv;
-		char *a = "";
-		strcpy(a,"hahah");
 		printf("%s\n",a);
 		printf("temp:%s\n", temp[1]);
-		strcpy(child_argv[3], "ls");
+		child_argv[3] = (char*)temp[1];
+		//strcpy(child_argv[3], "ls");
 		printf("3:%s\n", child_argv[3]); 
 		child_argv[5] = NULL;
 		printf("0:%s 1:%s\n", child_argv[0],child_argv[1]);
