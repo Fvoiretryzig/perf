@@ -48,7 +48,8 @@ int main(int argc, char *argv[]) {
 		//printf("fd_str:%s\n", fd_str);
 		
 		char another_argv[100][100]; 
-		memcpy(another_argv, argv, sizeof(argv));
+		for(int i = 0; i<argc; i++)
+			strcpy(another_argv[i], argv[i]);
 		for(int i = 1; i<argc; i++)
 			strcpy(argv[i+2], argv[i]);
 		strcpy(argv[0], "strace");
