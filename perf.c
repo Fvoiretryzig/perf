@@ -4,6 +4,8 @@
 #include<sys/types.h>
 #include<stdlib.h>
 #include <assert.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 struct systemcall
 {
