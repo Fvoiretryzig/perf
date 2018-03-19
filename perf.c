@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
 		char *app="";
 		app = argv[1];
-		char *space;
+		char *space="";
 		*space = 32;
 		printf("this is app:%s\n", app);
 		//strcpy(app, argv[1]);
