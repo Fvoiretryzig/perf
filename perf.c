@@ -42,6 +42,7 @@ int main(int argc, char *argv[]) {
 		for(int i = 1; i<argc-1; i++){
 			strcat(app, argv[i]);
 			printf("this is for\n");
+			printf("app:%s\n", app);
 		}
 			
 		char *fd_str="";
