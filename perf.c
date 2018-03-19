@@ -66,6 +66,7 @@ int main(int argc, char *argv[]) {
 		while(1){
 			printf("this is father\n");
 			ssize_t len = read(fd[0], buf, 1024);
+			printf("%d\n", len);
 			if(len > 0)
 				printf("read:\n%s\n", buf);
 			else{
