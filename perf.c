@@ -43,7 +43,9 @@ int main(int argc, char *argv[]) {
 		temp[0] += strlen(argv[0])+1;
 		temp[1] += strlen(argv[0])+1;
 		temp[2] = NULL;
+		temp[3] = NULL;
 		printf("%s\n", temp[0]);
+		printf("%s\n", temp[3]);
 		printf("0:%s 1:%s 2:%s\n", temp[0], temp[1], temp[2]);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		execvp("strace", argv);
