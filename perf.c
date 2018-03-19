@@ -49,15 +49,15 @@ int main(int argc, char *argv[]) {
 		char another_argv[100][100]; 
 		for(int i = 0; i<argc; i++)
 			strcpy(another_argv[i], argv[i]);
-			
+		strcpy(argv[0], "strace");
+		strcpy(argv[1], "-w");
+		strcpy(argv[2], "-c");			
 		for(int i = 1; i<argc; i++){
 			printf("hahah\n");
 			strcpy(argv[i+2], another_argv[i]);
 			printf("argv:%s\n",argv[i+2]);
 		}
-		strcpy(argv[0], "strace");
-		strcpy(argv[1], "-w");
-		strcpy(argv[2], "-c");
+
 		for(int i = 0; i<argc+2; i++)
 			printf("argv[%d]:%s\n", i, argv[i]);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
