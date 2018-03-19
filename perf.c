@@ -47,13 +47,13 @@ int main(int argc, char *argv[]) {
 		//printf("fd_str:%s\n", fd_str);
 		
 		char another_argv[100][100]; 
-		for(int i = 0; i<argc; i++){
+		for(int i = 0; i<argc; i++)
 			strcpy(another_argv[i], argv[i]);
-			printf("another:%s\n", another_argv[i]);
-		}
 			
-		for(int i = 1; i<argc; i++)
-			strcpy(argv[i+2], argv[i]);
+		for(int i = 1; i<argc; i++){
+			strcpy(argv[i+2], another_argv[i]);
+			printf("argv:%s\n",argv[i+2]);
+		}
 		strcpy(argv[0], "strace");
 		strcpy(argv[1], "-w");
 		strcpy(argv[2], "-c");
