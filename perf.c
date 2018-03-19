@@ -40,9 +40,9 @@ int main(int argc, char *argv[]) {
 		close(fd[0]);
 		
 		char *child_argv[100]; int len = 0;
-		for(int i = 0; i<argc; i++)
-			len += strlen(argc[i]);
-		applychar(child_argv, len);
+		//for(int i = 0; i<argc; i++)
+		//	len += strlen(argc[i]);
+		applychar(child_argv, 100);
 		printf("this is after\n");
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		execvp("strace", argv);
