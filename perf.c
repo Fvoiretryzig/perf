@@ -17,7 +17,7 @@ void do_str(char *s){
 
 int main(int argc, char *argv[]) {
 	/*--------读取命令行参数--------*/
-	for (int i = 0; i < argc; i++) {
+	/*for (int i = 0; i < argc; i++) {
 		assert(argv[i]); // specification
 	    printf("argv[%d] = %s\n", i, argv[i]);
 	}
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 	if(argc == 1){
 		printf("Usage: stat command [argument]");
 		exit(1);
-	}
+	}*/
 	/*--------连接管道，创建子进程--------*/
 	int fd[2] = {0, 0};
 	if(pipe(fd) != 0){
