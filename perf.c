@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 		char another_argv[100][100]; 
 		for(int i = 0; i<argc; i++){
 			strcpy(another_argv[i], argv[i]);
-			printf("line 52\n");
+			printf("another:%s\n", another_argv[i]);
 		}
 			
 		for(int i = 1; i<argc; i++)
