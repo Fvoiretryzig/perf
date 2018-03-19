@@ -40,6 +40,7 @@ int main(int argc, char *argv[]) {
 		printf("this is app:%s\n", app);
 		for(int i = 2; i<argc; i++){
 			sprintf(app, " %s", argv[i]);
+			printf("this is app;%s\n", app);
 		}
 			
 		char *fd_str="";
