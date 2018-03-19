@@ -41,6 +41,7 @@ int main(int argc, char *argv[]) {
 		printf("%s\n", child_argv[3]);
 		char **temp = argv;
 		printf("temp:%s\n", temp[1]);
+		sleep(2);
 		strcpy(child_argv[3], "ls");
 		printf("3:%s\n", child_argv[3]); 
 		child_argv[5] = NULL;
