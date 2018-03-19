@@ -42,7 +42,6 @@ int main(int argc, char *argv[]) {
 //			printf("this is app:%s\n", app);
 //		}
 		close(fd[0]);
-		close(1);
 		//char fd_str[11];
 		//sprintf(fd_str, "%d", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
 		//printf("fd_str:%s\n", fd_str);
