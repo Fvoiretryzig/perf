@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 		
 		char temp_argv[100][100]; 
 		strcpy(temp_argv[0], "strace"); strcpy(temp_argv[1], "-w"); strcpy(temp_argv[2], "-c");
-		for(int i = 1,int j = 3; i<argc; i++, j++){
+		for(int i = 1, j = 3; i<argc; i++, j++){
 			strcpy(temp_argv[j], argv[i]);
 			printf("temp_argv[%d]:%s\n", i, temp_argv[j]);
 		}
