@@ -47,16 +47,16 @@ int main(int argc, char *argv[]) {
 		//sprintf(fd_str, "%d", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
 		//printf("fd_str:%s\n", fd_str);
 		
-		char temp_argv[100][100]; 
-		strcpy(temp_argv[0], "strace"); strcpy(temp_argv[1], "-w"); strcpy(temp_argv[2], "-c");
-		for(int i = 1, j = 3; i<argc; i++, j++){
-			strcpy(temp_argv[j], argv[i]);
-			printf("temp_argv[%d]:%s\n", i, temp_argv[j]);
-		}
-		char *child_argv[100];
-		memcpy(child_argv, temp_argv, sizeof(temp_argv)+16);
+		char another_argv[100][100]; 
+		memcpy(another_argv, argv, sizeof(argv));
+		for(int i = 1; i<argc; i++)
+			strcpy(argv[i+2], argv[i]);
+		strcpy(argv[0], "strace");
+		strcpy(argv[1], "-w");
+		strcpy(argv[2], "-c");
+
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
-		execvp("strace", child_argv);
+		execvp("strace", argv);
 		//char *child_envp[ ]={"PATH=/bin", NULL};
 		//execve("/bin/strace", child_argv); 
 		close(fd[1]);
