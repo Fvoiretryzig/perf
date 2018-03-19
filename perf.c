@@ -40,8 +40,11 @@ int main(int argc, char *argv[]) {
 		printf("this is app:%s\n", app);
 		//strcpy(app, argv[1]);
 		
-		for(int i = 1; i<argc; i++)
+		for(int i = 1; i<argc; i++){
 			strcat(app, argv[i]);
+			printf("this is for\n");
+		}
+			
 		char *fd_str="";
 		sprintf(fd_str, "%d", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
 		char *child_argv[ ]={"strace", "-w -c", app, "&>", fd_str, NULL}; 
