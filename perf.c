@@ -37,8 +37,7 @@ int main(int argc, char *argv[])
 	if(pid == 0){
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
 		char *app;
-		if(argv[1])
-			strcpy(app, argv[1]);
+		strcpy(app, argv[1]);
 		for(int i = 1; i<argc; i++)
 			strcat(app, argv[i]);
 		char *fd_str;
