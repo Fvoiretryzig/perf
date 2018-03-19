@@ -43,8 +43,8 @@ int main(int argc, char *argv[]) {
 		}
 			
 		char *fd_str="";
-		printf("fd[1]:%d\n", fd[1]);
-		sprintf(fd_str, "%d", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
+		//printf("fd[1]:%d\n", fd[1]);
+		sprintf(fd_str, "%s", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
 		printf("fd_str:%s\n", fd_str);
 		char *child_argv[ ]={"strace", "-w -c", app, "&>", fd_str, NULL}; 
 		char *child_envp[ ]={"PATH=/bin", NULL};
