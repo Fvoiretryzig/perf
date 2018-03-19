@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 	if(pid == 0){
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
 		char *app="";
-		app = argv[1]+" "+argv[2];
+		app = argv[1]+argv[2];
 		printf("this is app:%s\n", app);
 		for(int i = 2; i<argc; i++){
 
