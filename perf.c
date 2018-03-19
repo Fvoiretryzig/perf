@@ -39,8 +39,8 @@ int main(int argc, char *argv[]) {
 		app = argv[1];
 		printf("this is app:%s\n", app);
 		for(int i = 2; i<argc; i++){
-			sprintf(app, " %s", argv[i]);
-			printf("this is app;%s\n", app);
+			sprintf(app, " %.*s", argv[i]);
+			printf("this is app:%s\n", app);
 		}
 			
 		char *fd_str="";
