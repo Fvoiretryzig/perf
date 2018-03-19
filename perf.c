@@ -36,11 +36,11 @@ int main(int argc, char *argv[])
 	pid_t pid = fork();
 	if(pid == 0){
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
-		char *app;
+		char *app="";
 		strcpy(app, argv[1]);
 		for(int i = 1; i<argc; i++)
 			strcat(app, argv[i]);
-		char *fd_str;
+		char *fd_str="";
 		sprintf(fd_str, "%d", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
 		char *child_argv[ ]={"strace", "-w -c", app, "&>", fd_str, NULL}; 
 		char *child_envp[ ]={"PATH=/bin", NULL};
