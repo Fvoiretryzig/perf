@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
 		printf("argv:%s\n", argv[0]);
 		printf("this is after\n");
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
-		execvp("strace", another_argv);
+		execvp("strace", (argv**)another_argv);
 		//char *child_envp[ ]={"PATH=/bin", NULL};
 		//execve("/bin/strace", child_argv); 
 		close(fd[1]);
