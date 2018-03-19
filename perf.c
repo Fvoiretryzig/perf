@@ -47,7 +47,8 @@ int main(int argc, char *argv[]) {
 		//sprintf(fd_str, "%d", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
 		//printf("fd_str:%s\n", fd_str);
 		
-		char temp_argv[100][100]; temp_argv[0] = "strace"; temp_argv[1] = "-w"; temp_argv[2] = "-c";
+		char temp_argv[100][100]; 
+		strcpy(temp_argv[0], "strace"); strcpy(temp_argv[1], "-w"); strcpy(temp_argv[2], "-c");
 		for(int i = 1,int j = 3; i<argc; i++, j++){
 			strcpy(temp_argv[j], argv[i]);
 			printf("temp_argv[%d]:%s\n", i, temp_argv[j]);
