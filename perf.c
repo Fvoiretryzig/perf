@@ -54,6 +54,7 @@ int main(int argc, char *argv[]) {
 	else{
 		//父进程， 要通过管道读取strace的输出
 		sleep(2);
+		printf("this is father\n");
 		dup2(fd[0],fd[1]);
 		dup2(fd[0], 1);
 		//printf("fd[0]:%d fd[1]:%d\n", fd[0], fd[1]);
