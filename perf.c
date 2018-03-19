@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
 	pid_t pid = fork();
 	if(pid == 0){
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
-		char *another_argv[100];
+		char another_argv[100][100];
 		for(int i = 0; i<argc; i++){
 			strcpy(another_argv[i], argv[i]);
 			printf("argv:%s\n", argv[i]);
