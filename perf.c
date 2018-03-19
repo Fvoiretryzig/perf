@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
 			printf("temp_argv[%d]:%s\n", i, temp_argv[j]);
 		}
 		char *child_argv[100];
-		memcpy(child_argv, temp_argv, sizeof(temp_argv));
+		memcpy(child_argv, temp_argv, sizeof(temp_argv)+16);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		execvp("strace", child_argv);
 		//char *child_envp[ ]={"PATH=/bin", NULL};
