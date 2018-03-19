@@ -41,8 +41,7 @@ int main(int argc, char *argv[]) {
 			sprintf(app, "%s %s",app ,argv[i]);
 			printf("this is app:%s\n", app);
 		}
-			
-		char fd_str[16];
+		char fd_str[11];
 		//printf("fd[1]:%d\n", fd[1]);
 		sprintf(fd_str, "%d", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
 		printf("fd_str:%s\n", fd_str);
