@@ -14,10 +14,12 @@ struct systemcall syscall[300];
 
 void do_str(char *s){
 }
-
+void applychar(char **res,int n){
+    *res=(char*)malloc(sizeof(char)*n);
+}
 int main(int argc, char *argv[]) {
 	/*--------读取命令行参数--------*/
-	/*for (int i = 0; i < argc; i++) {
+	for (int i = 0; i < argc; i++) {
 		assert(argv[i]); // specification
 	    printf("argv[%d] = %s\n", i, argv[i]);
 	}
@@ -25,7 +27,7 @@ int main(int argc, char *argv[]) {
 	if(argc == 1){
 		printf("Usage: stat command [argument]");
 		exit(1);
-	}*/
+	}
 	/*--------连接管道，创建子进程--------*/
 	int fd[2] = {0, 0};
 	if(pipe(fd) != 0){
@@ -37,20 +39,8 @@ int main(int argc, char *argv[]) {
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
 		close(fd[0]);
 		
-		char another_argv[100][100]; 
-		for(int i = 0; i<argc; i++)
-			strcpy(another_argv[i], argv[i]);
-		strcpy(argv[0], "strace"); strcpy(argv[1], "-w"); strcpy(argv[2], "-c");
-		strcpy(argv[3], argv[0]);
-		printf("argv[3]:%s\n", argv[3]);			
-		for(int i = 1; i<argc; i++){
-			printf("0:%s 1:%s 2:%s\n",argv[0], argv[1], argv[2]);
-			strcpy(argv[i+2], another_argv[i]);
-			printf("argv:%s\n",argv[i+2]);
-		}
-
-		for(int i = 0; i<argc+2; i++)
-			printf("argv[%d]:%s\n", i, argv[i]);
+		char *child_argv[100];
+		applychar(child_argv, sizeof(argv));
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		execvp("strace", argv);
 		//char *child_envp[ ]={"PATH=/bin", NULL};
