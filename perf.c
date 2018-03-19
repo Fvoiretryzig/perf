@@ -39,8 +39,7 @@ int main(int argc, char *argv[]) {
 		app = argv[1];
 		printf("this is app:%s\n", app);
 		//strcpy(app, argv[1]);
-		printf("argc:%d\n", argc);
-		for(int i = 1; i<argc; i++){
+		for(int i = 1; i<argc-1; i++){
 			strcat(app, argv[i]);
 			printf("this is for\n");
 		}
