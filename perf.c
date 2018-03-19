@@ -4,8 +4,6 @@
 #include<sys/types.h>
 #include<stdlib.h>
 #include <assert.h>
-#include <stdlib.h>
-#include <stdio.h>
 
 struct systemcall
 {
@@ -44,10 +42,9 @@ int main(int argc, char *argv[]) {
 			printf("this is app:%s\n", app);
 		}
 			
-		char *fd_str="";
+		char fd_str[];
 		//printf("fd[1]:%d\n", fd[1]);
-		itoa(fd[1], fd_str,10);
-		//sprintf(fd_str, "%s", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
+		sprintf(fd_str, "%d", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
 		printf("fd_str:%s\n", fd_str);
 		char *child_argv[ ]={"strace", "-w -c", app, "&>", fd_str, NULL}; 
 		char *child_envp[ ]={"PATH=/bin", NULL};
