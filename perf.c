@@ -35,10 +35,10 @@ int main(int argc, char *argv[])
 	}
 	pid_t pid = fork();
 	if(pid == 0){
-		printf("this is in child\n");
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
 		char *app="";
 		strcpy(app, argv[1]);
+		printf("this is after strcpy\n");
 		for(int i = 1; i<argc; i++)
 			strcat(app, argv[i]);
 		char *fd_str="";
