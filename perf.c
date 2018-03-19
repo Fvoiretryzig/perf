@@ -42,9 +42,10 @@ int main(int argc, char *argv[]) {
 		printf("this is app:%s\n", app);
 		//strcpy(app, argv[1]);
 		for(int i = 2; i<argc; i++){
-			strcat(app, 32);
+			*app += " ";
 			printf("app:%s\n", app);
-			strcat(app, argv[i]);
+			//strcat(app, argv[i]);
+			*app += argv[i];
 			printf("app:%s\n", app);
 		}
 			
