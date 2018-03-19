@@ -35,21 +35,29 @@ int main(int argc, char *argv[]) {
 	pid_t pid = fork();
 	if(pid == 0){
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
-		char *app="";
-		app = argv[1];
-		
-		for(int i = 2; i<argc; i++){
-			sprintf(app, "%s %s",app ,argv[i]);
-			printf("this is app:%s\n", app);
-		}
+//		char *app="";
+//		app = argv[1];	
+//		for(int i = 2; i<argc; i++){
+//			sprintf(app, "%s %s",app ,argv[i]);
+//			printf("this is app:%s\n", app);
+//		}
 		close(fd[0]);
 		close(1);
-		char fd_str[11];
-		sprintf(fd_str, "%d", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
-		printf("fd_str:%s\n", fd_str);
-		char *child_argv[ ]={"strace", "-w -c", app, "&>", fd_str, NULL}; 
-		char *child_envp[ ]={"PATH=/bin", NULL};
-		execve("/bin/strace", child_argv, child_envp);
+		//char fd_str[11];
+		//sprintf(fd_str, "%d", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
+		//printf("fd_str:%s\n", fd_str);
+		
+		char temp_argv[100][100]; temp_argv[0] = "strace"; temp_argv[1] = "-w"; temp_argv[2] = "-c";
+		for(int i = 1,int j = 3; i<argc; i++, j++){
+			strcpy(temp_argv[j], argv[i]);
+			printf("temp_argv[%d]:%s\n", i, temp_argv[j]);
+		}
+		char *child_argv[100];
+		memcpy(child_argv, temp_argv, sizeof(temp_argv));
+		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
+		execvp("strace", child_argv);
+		//char *child_envp[ ]={"PATH=/bin", NULL};
+		//execve("/bin/strace", child_argv); 
 		close(fd[1]);
 	}
 	else{
