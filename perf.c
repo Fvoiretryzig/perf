@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
 		strcpy(argv[1], "-w");
 		strcpy(argv[2], "-c");			
 		for(int i = 1; i<argc; i++){
-			printf("hahah\n");
+			printf("0:%s 1:%s 2:%s\n",argv[0], argv[1], argv[2]);
 			strcpy(argv[i+2], another_argv[i]);
 			printf("argv:%s\n",argv[i+2]);
 		}
