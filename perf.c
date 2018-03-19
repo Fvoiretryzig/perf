@@ -38,15 +38,9 @@ int main(int argc, char *argv[]) {
 		char *app="";
 		app = argv[1];
 		char *space=" ";
-		//*space = 32;
 		printf("this is app:%s\n", app);
-		//strcpy(app, argv[1]);
 		for(int i = 2; i<argc; i++){
-			//*app += " ";
-			printf("app:%s\n", app);
-			//strcat(app, argv[i]);
-			*app += argv[i];
-			printf("app:%s\n", app);
+
 		}
 			
 		char *fd_str="";
