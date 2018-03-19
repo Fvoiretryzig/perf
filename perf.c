@@ -39,8 +39,11 @@ int main(int argc, char *argv[]) {
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
 		close(fd[0]);
 		
-		char *child_argv[100];
-		applychar(child_argv, sizeof(argv));
+		char *child_argv[100]; int len = 0;
+		for(int i = 0; i<argc; i++)
+			len += strlen(argc[i]);
+		applychar(child_argv, len);
+		printf("this is after\n");
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		execvp("strace", argv);
 		//char *child_envp[ ]={"PATH=/bin", NULL};
