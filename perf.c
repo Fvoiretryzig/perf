@@ -50,15 +50,12 @@ int main(int argc, char *argv[]) {
 		char *child_argv[ ]={"strace", "-w -c", app, "&>", fd_str, NULL}; 
 		char *child_envp[ ]={"PATH=/bin", NULL};
 		execve("/bin/strace", child_argv, child_envp);
+		close(fd[1]);
 	}
 	else{
 		//父进程， 要通过管道读取strace的输出
 		sleep(2);
-		printf("this is father\n");
-		dup2(fd[0],fd[1]);
-		dup2(fd[0], 1);
-		printf("this is father\n");
-		//printf("fd[0]:%d fd[1]:%d\n", fd[0], fd[1]);
+		printf("this is father out while\n");
 		close(fd[1]);	//把父进程的写管道关掉
 		/*---------初步尝试---------*/
 		char *buf;
