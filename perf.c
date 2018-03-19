@@ -3,6 +3,7 @@
 #include<string.h>
 #include<sys/types.h>
 #include<stdlib.h>
+#include <assert.h>
 
 struct systemcall
 {
@@ -23,7 +24,7 @@ int main(int argc, char *argv[])
 	}
 	assert(!argv[argc]); // specification	
 	if(argc == 1){
-		printf("Usage: stat command [argument]")
+		printf("Usage: stat command [argument]");
 		exit(1);
 	}
 	/*--------连接管道，创建子进程--------*/
