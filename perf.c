@@ -37,13 +37,12 @@ int main(int argc, char *argv[]) {
 	pid_t pid = fork();
 	if(pid == 0){
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
-		char child_argv[100][100]={"strace","-w","-c"};
-		strcpy(child_argv[3], argv[1]);
-		printf("3:%s\n", child_argv[3]);
-		char **temp = child_argv;
-		printf("temp:%s\n", temp[1]);
+		char *child_argv[100]={"strace","-w","-c", "cat", "-a","","",""};
+		strcpy(child_argv[3],argv[1]); 
+		child_argv[5] = NULL;
+		
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
-		execvp("strace", temp);
+		execvp("strace", child_argv);
 		close(fd[1]);
 	}
 	else{
