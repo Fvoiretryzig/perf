@@ -57,6 +57,7 @@ int main(int argc, char *argv[]) {
 		printf("this is father\n");
 		dup2(fd[0],fd[1]);
 		dup2(fd[0], 1);
+		printf("this is father\n");
 		//printf("fd[0]:%d fd[1]:%d\n", fd[0], fd[1]);
 		close(fd[1]);	//把父进程的写管道关掉
 		/*---------初步尝试---------*/
