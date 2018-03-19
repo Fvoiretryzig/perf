@@ -40,8 +40,8 @@ int main(int argc, char *argv[]) {
 		char *another_argv[100];
 		for(int i = 0; i<argc; i++){
 			strcpy(another_argv[i], argv[i]);
+			printf("argv:%s\n", argv[i]);
 		}
-		strcpy(argv[0], another_argv[1]);
 		printf("argv:%s\n", argv[0]);
 		printf("this is after\n");
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
