@@ -41,6 +41,7 @@ int main(int argc, char *argv[]) {
 		//printf("0:0x%x len:%d 1:0x%x len:%d 2:0x%x len:%d\n", temp[0], temp[1], temp[2], strlen(temp[0]), strlen(temp[1]), strlen(temp[2]));
 		printf("0:%d %d\n", strlen(argv[0]), strlen(temp[0]));
 		temp[0] += strlen(argv[0])+1;
+		temp[1] += strlen(argv[0])+1;
 		printf("%s\n", temp[0]);
 		printf("0:%s 1:%s 2:%s\n", temp[0], temp[1], temp[2]);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
