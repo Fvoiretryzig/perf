@@ -42,7 +42,6 @@ int main(int argc, char *argv[]) {
 			printf("this is app:%s\n", app);
 		}
 		char fd_str[11];
-		//printf("fd[1]:%d\n", fd[1]);
 		sprintf(fd_str, "%d", fd[1]);	//此处fd[1]是子进程的写管道！！！尝试是不是用字符串表示！！！
 		printf("fd_str:%s\n", fd_str);
 		char *child_argv[ ]={"strace", "-w -c", app, "&>", fd_str, NULL}; 
@@ -51,6 +50,7 @@ int main(int argc, char *argv[]) {
 	}
 	else{
 		//父进程， 要通过管道读取strace的输出
+		printf("this is father\n");
 		close(fd[1]);	//把父进程的写管道关掉
 		/*---------初步尝试---------*/
 		char *buf;
