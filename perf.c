@@ -60,7 +60,10 @@ int main(int argc, char *argv[]) {
 			ssize_t len = read(fd[0], buf, 1024);
 			if(len > 0)
 				printf("read:\n%s\n", buf);
-			else exit(0);
+			else{
+				printf("this is in else\n");
+				exit(0);
+			}
 		}
 		
 	}
