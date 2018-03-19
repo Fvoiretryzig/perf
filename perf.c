@@ -47,9 +47,11 @@ int main(int argc, char *argv[]) {
 		//printf("fd_str:%s\n", fd_str);
 		
 		char another_argv[100][100]; 
-		printf("hahah\n");
-		for(int i = 0; i<argc; i++)
+		for(int i = 0; i<argc; i++){
 			strcpy(another_argv[i], argv[i]);
+			printf("line 52\n");
+		}
+			
 		for(int i = 1; i<argc; i++)
 			strcpy(argv[i+2], argv[i]);
 		strcpy(argv[0], "strace");
