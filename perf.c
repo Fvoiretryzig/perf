@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 		char *buf;
 		while(1){
 			printf("this is father\n");
-			dup2(1,fd[0]);
+			//dup2(1,fd[0]);
 			ssize_t len = read(fd[0], buf, 1024);
 			printf("%d\n", len);
 			if(len > 0)
