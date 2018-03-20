@@ -66,12 +66,9 @@ int main(int argc, char *argv[]) {
 			printf("this is father\n");
 			printf("%s\n", buf);
 			printf("hahaha\n");
-			if(len > 0)
-				printf("read:\n%s\n", buf);
-			else{
-				printf("this is in else\n");
-				exit(0);
-			}
+
+		}
+		exit(0);
 		}
 		
 	}
