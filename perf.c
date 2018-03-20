@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
 		close(fd[1]);			
 		printf("this is father out while\n");
 		printf("fd[0]:%d fd[1]:%d\n", fd[0], fd[1]);
-		char buf[1024][1024];
+		char buf[1024][100];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
 		printf("len:%d\n", len);	
 		printf("buf:%s\n", buf[0]);
