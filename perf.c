@@ -60,18 +60,18 @@ int main(int argc, char *argv[]) {
 		printf("len:%d\n", len);	
 		char *temp = strtok(buf[0], " ");
 		for(int i = 0; i<300; i++){
-			temp = strtok(buf[0], "\n");
+			temp = strtok(NULL, "\n");
 			printf("temp%d:%s\n ", i, temp);			
 			if(temp == NULL){
 				printf("\n");
 				break;
 			}	
 			
-			/*else{
+			else{
 				printf("len: %d\n", strlen(temp));
 				int cnt = 0; char *tmp = strtok(temp, " ");
 				printf("tmp:%s\n", tmp);
-				for(int j = 0; j<strlen(temp); j++){
+			/*	for(int j = 0; j<strlen(temp); j++){
 					cnt++;
 					tmp = strtok(NULL, "");
 					if(tmp == NULL)
@@ -80,8 +80,8 @@ int main(int argc, char *argv[]) {
 						if(tmp[0]>58)
 							printf("name:%s\n", tmp);
 					}
-				}
-			}*/
+				}*/
+			}
 		}
 		/*char *temp = strtok(buf[0], " ");
 		printf("temp1:%s\n", temp);
