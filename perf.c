@@ -82,7 +82,7 @@ int main(int argc, char *argv[]) {
 			}	
 			
 			else{
-				printf("len: %d\n", strlen(temp));
+				//printf("len: %d\n", strlen(temp));
 				if(i >= 2){
 					char *pattern_name = "[A-Za-z,_]+";	//用来匹配名字的
 					regex_t reg_name;
@@ -102,7 +102,7 @@ int main(int argc, char *argv[]) {
 						regfree(&reg_name);
 						if(!strcmp(temp+pm_name[0].rm_so, "-"))
 							break;
-						printf("temp:%s\n", temp);
+						//printf("temp:%s\n", temp);
 						p_per = regexec(&reg_per, temp, 1, pm_per, 0);
 						printf("per:%s%\n\n", substr(temp, pm_per[0].rm_so, pm_per[0].rm_eo));
 						regfree(&reg_per);
