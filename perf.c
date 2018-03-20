@@ -66,9 +66,9 @@ int main(int argc, char *argv[]) {
 		char buf[1024][100];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
 		printf("len:%d\n", len);	
-		char *pattern = "[A-Za-z]+";
+		/*char *pattern = "[A-Za-z]+";
 		regex_t reg;
-		int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];	
+		int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];*/	
 		//char *r = "forty";
 		/*p=regexec(&reg,r,1,pm,0);
 		substr(r,pm[0].rm_so,pm[0].rm_eo);
@@ -93,6 +93,9 @@ int main(int argc, char *argv[]) {
 					else{
 					//char *r = ""; 
 					printf("this is hahah\n");	
+					char *pattern = "[A-Za-z]+";
+					regex_t reg;
+					int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];	
 					p=regexec(&reg,temp,1,pm,0);
 					substr(temp,pm[0].rm_so,pm[0].rm_eo);
 					printf("r:%s\n", substr(temp,pm[0].rm_so,pm[0].rm_eo));
