@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
 			else{
 				//printf("len: %d\n", strlen(temp));
 				if(i >= 2){
-					char *pattern_name = "[A-Za-z,_]+";	//用来匹配名字的
+					char *pattern_name = "[A-Za-z]+([0-9]+)?";	//用来匹配名字的
 					regex_t reg_name;
 					int p_name = regcomp(&reg_name,pattern_name, REG_EXTENDED);
 					
