@@ -5,6 +5,8 @@
 #include<stdlib.h>
 #include <assert.h>
 #include <fcntl.h>
+#include <sys/stat.h>
+
 struct systemcall
 {
 	float per_time;
