@@ -70,7 +70,6 @@ int main(int argc, char *argv[]) {
 		//int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
 		//dup2(open_fd,fd[1]);
 
-		}
 			exit(0);
 	}
 	return 0;
