@@ -51,17 +51,16 @@ int main(int argc, char *argv[]) {
 	else{
 		//父进程， 要通过管道读取strace的输出
 		
-		sleep(2);
+		sleep(1);
 		close(fd[1]);			
 		printf("this is father out while\n");
-		printf("fd[0]:%d fd[1]:%d\n", fd[0], fd[1]);
 		char buf[1024][100];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
 		printf("len:%d\n", len);	
 		char *temp = strtok(buf[0], " ");
 		temp = strtok(temp+strlen(temp)+1, "\n");
 		for(int i = 0; i<300; i++){
-			temp = strtok(temp, "\n");
+			temp = strtok(NULL, "\n");
 			printf("temp%d:%s\n ", i, temp);			
 			if(temp == NULL){
 				printf("\n");
@@ -71,12 +70,12 @@ int main(int argc, char *argv[]) {
 			
 			else{
 				printf("len: %d\n", strlen(temp));
-				char *tmp = strtok(temp, " ");
+			/*	char *tmp = strtok(temp, " ");
 				printf("tmp:%s\n", tmp);
 				
 					
 				tmp = strtok(temp, " ");
-				printf("tmp:%s\n", tmp);
+				printf("tmp:%s\n", tmp);*/
 			/*	for(int j = 0; j<strlen(temp); j++){
 					cnt++;
 					tmp = strtok(NULL, "");
