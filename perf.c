@@ -53,7 +53,6 @@ int main(int argc, char *argv[]) {
 		char *buf;
 		read(fd[0], buf, 4);
 		printf("%s\n", buf);
-		read()
 		execvp("strace", child_argv);
 		printf("hahaha\n");
 		//close(fd[1]);
