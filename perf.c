@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
 		char *buf;
 		while((read(fd[0], &buf, 1)>0)){
 			printf("this is father\n");
-			printf("%c\n", buf);
+			printf("%s\n", buf);
 			printf("hahaha\n");
 
 		}
