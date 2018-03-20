@@ -72,7 +72,8 @@ int main(int argc, char *argv[]) {
 			else{
 				printf("len: %d\n", strlen(temp));
 				char *tmp = strtok(temp," ");
-				printf("tmp:0x%x\n", temp);
+				printf("tmp:%s\n", tmp);
+				printf("temp:0x%x\n", temp);
 				int len = strlen(temp);
 				temp = temp + len + 1;
 				printf("tmep:0x%x len:%d\n", temp, len);
