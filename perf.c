@@ -49,14 +49,16 @@ int main(int argc, char *argv[]) {
 		}
 		printf("argc:%d\n", argc);
 		child_argv[argc+2] = NULL;
+		close(fd[0]);
 		//child_argv[5] = NULL;
 		//printf("%s\n",child_argv[5]);
-		int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
-		//dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
+		//int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
+		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		//dup2(fd[1],open_fd);
-		dup2(open_fd,2);
+		//dup2(open_fd,2);
 		execvp("strace", child_argv);
 		close(fd[1]);
+		exit(0);
 	}
 	else{
 		//父进程， 要通过管道读取strace的输出
@@ -67,6 +69,7 @@ int main(int argc, char *argv[]) {
 		char *buf;
 		while(1){
 			printf("this is father\n");
+			dup(1,fd[2]);
 			ssize_t len = read(fd[0], buf, 1024);
 			printf("%d\n", len);
 			if(len > 0)
