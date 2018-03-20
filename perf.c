@@ -59,18 +59,29 @@ int main(int argc, char *argv[]) {
 		ssize_t len = read(fd[0], buf, sizeof(buf));
 		printf("len:%d\n", len);	
 		char *temp = strtok(buf[0], " ");
-		for(int i = 0; i<300; i++)
-		{
+		for(int i = 0; i<300; i++){
 			temp = strtok(NULL, "\n");
-			printf("temp%d:%s ", i, temp);
-			if(temp == NULL)
-			{
+			printf("temp%d:%s ", i, temp);			
+			if(temp == NULL){
 				printf("\n");
 				break;
-			}
-				
-			else
+			}	
+			
+			else{
 				printf("len: %d\n", strlen(temp));
+				int cnt = 0; char *tmp = strtok(temp, " ");
+				printf("tmp:%s\n", tmp);
+				for(int j = 0; j<strlen(temp); j++){
+					cnt++;
+					tmp = strtok(NULL, "");
+					if(tmp == NULL)
+						break;
+					else{
+						if(tmp[0]>58)
+							printf("name:%s\n", tmp)
+					}
+				}
+			}
 		}
 		/*char *temp = strtok(buf[0], " ");
 		printf("temp1:%s\n", temp);
