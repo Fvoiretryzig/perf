@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
 		char *temp = strtok(buf[0], " ");
 		for(int i = 0; i<300; i++)
 		{
-			temp = strtok(NULL, " ");
+			temp = strtok(NULL, "\n");
 			printf("temp%d:%s ", i, temp);
 			if(temp == NULL)
 			{
