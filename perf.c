@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
 		char buf[1024][100];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
 		printf("len:%d\n", len);	
-		char *temp = "";
+		char *temp = strtok(buf[0], " ");
 		for(int i = 0; i<300; i++)
 		{
 			temp = strtok(NULL, "\n");
