@@ -18,7 +18,8 @@ struct systemcall syscall[300];
 char* substr(const char*str, unsigned start, unsigned end)
 {
   unsigned n = end - start;
-  char stbuf[256] = "";
+  static char stbuf[256];
+  stbuf = "";
   printf("start:%d end:%d\n", start, end);
   strncpy(stbuf, str + start, n);
   printf("stbuf:%s\n", stbuf);
