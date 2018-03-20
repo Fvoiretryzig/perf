@@ -87,15 +87,16 @@ int main(int argc, char *argv[]) {
 			else{
 				printf("len: %d\n", strlen(temp));
 				if(i > 2){
+					char *pattern = "[A-Za-z]+";
+					regex_t reg;
+					int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];	
 					if(p!=0){
 						printf("error!");
 					}	
 					else{
 					//char *r = ""; 
 					printf("this is hahah\n");	
-					char *pattern = "[A-Za-z]+";
-					regex_t reg;
-					int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];	
+					
 					p=regexec(&reg,temp,1,pm,0);
 					substr(temp,pm[0].rm_so,pm[0].rm_eo);
 					printf("r:%s\n", substr(temp,pm[0].rm_so,pm[0].rm_eo));
