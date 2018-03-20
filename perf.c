@@ -55,19 +55,22 @@ int main(int argc, char *argv[]) {
 	}
 	else{
 		//父进程， 要通过管道读取strace的输出
+		
 		sleep(2);
-		printf("this is father out while\n");
 		close(fd[1]);	//把父进程的写管道关掉
+		dup2(fd[0], 0);
+		printf("this is father out while\n");
+		
 		/*---------初步尝试---------*/
 		//int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
 		//dup2(open_fd,fd[1]);
 		char *buf;
-		while((read(fd[0], &buf, 1024)>0)){
+		/*while((read(fd[0], &buf, 1024)>0)){
 			printf("this is father\n");
 			printf("%s\n", buf);
 			printf("hahaha\n");
 
-		}
+		}*/
 			exit(0);
 	}
 	return 0;
