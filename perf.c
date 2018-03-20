@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
 		printf("this is father out while\n");
 		char buf[1024][100];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
-		//printf("len:%d\n", len);	
+		printf("len:%d\n", len);	
 		char *pattern = "";
 		strcpy(pattern, "[A-Za-z]+");
 		regex_t reg;
