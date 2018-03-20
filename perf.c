@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
 					else{
 					//char *r = ""; 
 					printf("this is hahah\n");	
-					char *r = "214135 2 32r 234 ewrdsr";
+					char *r = "214135232r234ewrdsr";
 					/*p=regexec(&reg,temp,1,pm,0);
 					substr(temp,pm[0].rm_so,pm[0].rm_eo);
 					printf("r:%s\n", substr(temp,pm[0].rm_so,pm[0].rm_eo));*/
