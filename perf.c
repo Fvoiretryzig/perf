@@ -51,8 +51,8 @@ int main(int argc, char *argv[]) {
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		printf("fd[0]:%d fd[1]:%d", fd[0], fd[1]);
 		char *buf;
-		read(fd[0], buf, 4);
-		printf("%s\n", buf);
+		//read(fd[0], buf, 4);
+		//printf("%s\n", buf);
 		execvp("strace", child_argv);
 		printf("hahaha\n");
 		//close(fd[1]);
