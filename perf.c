@@ -58,9 +58,10 @@ int main(int argc, char *argv[]) {
 		ssize_t len = read(fd[0], buf, sizeof(buf));
 		printf("len:%d\n", len);	
 		char *temp = strtok(buf[0], " ");
-		temp = strtok(temp, "\n"); //temp += strlen(temp)+1;
+		temp = strtok(temp, "\n"); int cnt = 0;
 		for(int i = 0; i<300; i++){
-			temp += strlen(temp) + 1;
+			cnt++;
+			temp += strlen(temp) + 1;	//手动移指针
 			temp = strtok(temp, "\n");
 			printf("temp%d:%s\n ", i, temp);			
 			if(temp == NULL){
@@ -71,12 +72,16 @@ int main(int argc, char *argv[]) {
 			else{
 				printf("len: %d\n", strlen(temp));
 				char *tmp = strtok(temp," ");
-				if(tmp[0] > 58)
+				if(cnt>11 && cnt<119 && !((cnt-2)%5))
+					printf("this is percent:%s\n", tmp);
+				if(cnt>11 && cnt<119 && !((cnt-1)%5) ){
+					if(!((tmp[0]>=58 && tmp[0]<=90) || (tmp[0]>=97 && tmp[0]<=122)))
+						cnt--;
+					else
+						printf("this is name:%s\n", tmp);
+				}
+				if(tmp[0] >= 58)
 					printf("tmp:%s\n\n", tmp);
-				//printf("temp:0x%x\n", temp);
-				//int len = strlen(temp);
-				//temp = temp + len + 1;
-				//printf("tmep:0x%x len:%d\n\n", temp, len);
 
 			}
 		}
