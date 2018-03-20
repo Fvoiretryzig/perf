@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
 		for(int i = 0; i<300; i++)
 		{
 			temp = strtok(NULL, " ");
-			printf("temp%d:%s\n", i, temp);
+			printf("temp%d:%s len:%d\n", i, temp, strlen(temp));
 			if(temp == NULL)
 				break;
 		}
