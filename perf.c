@@ -63,18 +63,13 @@ int main(int argc, char *argv[]) {
 		char buf[1024][1024];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
 		printf("len:%d\n", len);	
+		printf("buf:%s\n", buf[0]);
 		if(len > 0)
 			printf("%s\n", buf);
 		else
 			printf("len:%d\n", len);
-		//close(fd[1]);	//把父进程的写管道关掉
-
-		
-		//int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
-		//dup2(open_fd,fd[1]);
-
-		
+				
 			exit(0);
-	}\
+	}
 	return 0;
 }
