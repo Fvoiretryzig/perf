@@ -72,27 +72,12 @@ int main(int argc, char *argv[]) {
 			else{
 				printf("len: %d\n", strlen(temp));
 				char *tmp = strtok(temp," ");
-				printf("tmp:%s\n", tmp);
-				printf("temp:0x%x\n", temp);
+				printf("tmp:%s\n\n", tmp);
+				//printf("temp:0x%x\n", temp);
 				int len = strlen(temp);
 				temp = temp + len + 1;
-				printf("tmep:0x%x len:%d\n\n", temp, len);
-			/*	char *tmp = strtok(temp, " ");
-				printf("tmp:%s\n", tmp);
-				
-					
-				tmp = strtok(temp, " ");
-				printf("tmp:%s\n", tmp);*/
-			/*	for(int j = 0; j<strlen(temp); j++){
-					cnt++;
-					tmp = strtok(NULL, "");
-					if(tmp == NULL)
-						break;
-					else{
-						if(tmp[0]>58)
-							printf("name:%s\n", tmp);
-					}
-				}*/
+				//printf("tmep:0x%x len:%d\n\n", temp, len);
+
 			}
 		}
 		/*char *temp = strtok(buf[0], " ");
