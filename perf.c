@@ -47,12 +47,11 @@ int main(int argc, char *argv[]) {
 		}
 		printf("argc:%d\n", argc);
 		child_argv[argc+2] = NULL;
-		//strcpy(child_argv[3], "ls");
-		//printf("3:%s\n", child_argv[3]); 
-		child_argv[5] = NULL;
-		printf("%s\n",child_argv[5]);
-		printf("0:%s 1:%s", child_argv[0],child_argv[1]);
+		//child_argv[5] = NULL;
+		//printf("%s\n",child_argv[5]);
+		int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
+		dup2(fd[1],open_fd);
 		execvp("strace", child_argv);
 		close(fd[1]);
 	}
