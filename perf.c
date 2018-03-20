@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
 			
 			else{
 				printf("len: %d\n", strlen(temp));
-				if(i == 2){
+				if(i > 2){
 					if(p!=0){
 						printf("error!");
 					}	
