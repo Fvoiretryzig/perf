@@ -59,12 +59,12 @@ int main(int argc, char *argv[]) {
 		printf("this is father out while\n");
 		close(fd[1]);	//把父进程的写管道关掉
 		/*---------初步尝试---------*/
-		int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
-		dup2(open_fd,fd[1]);
+		//int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
+		//dup2(open_fd,fd[1]);
 		char *buf;
 		while((read(fd[0], &buf, 1)>0)){
 			printf("this is father\n");
-			printf("%s\n", buf);
+			printf("%c\n", buf);
 			printf("hahaha\n");
 
 		}
