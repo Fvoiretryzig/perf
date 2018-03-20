@@ -98,7 +98,7 @@ int main(int argc, char *argv[]) {
 
 			}
 		}
-		regfree(reg);
+		regfree(&reg);
 				
 			exit(0);
 	}
