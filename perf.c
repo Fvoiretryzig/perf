@@ -72,7 +72,8 @@ int main(int argc, char *argv[]) {
 			else{
 				printf("len: %d\n", strlen(temp));
 				char *tmp = strtok(temp," ");
-				printf("tmp:%s\n\n", tmp);
+				if(tmp[0] > 58)
+					printf("tmp:%s\n\n", tmp);
 				//printf("temp:0x%x\n", temp);
 				int len = strlen(temp);
 				temp = temp + len + 1;
