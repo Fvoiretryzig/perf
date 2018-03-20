@@ -63,14 +63,14 @@ int main(int argc, char *argv[]) {
 			cnt++;
 			temp += strlen(temp) + 1;	//手动移指针
 			temp = strtok(temp, "\n");
-			printf("temp%d:%s\n ", i, temp);			
+			//printf("temp%d:%s\n ", i, temp);			
 			if(temp == NULL){
 				printf("\n");
 				break;
 			}	
 			
 			else{
-				printf("len: %d\n", strlen(temp));
+				//printf("len: %d\n", strlen(temp));
 				char *tmp = strtok(temp," ");
 				if(cnt>11 && cnt<119 && !((cnt-2)%5))
 					printf("this is percent:%s\n", tmp);
@@ -80,8 +80,8 @@ int main(int argc, char *argv[]) {
 					else
 						printf("this is name:%s\n", tmp);
 				}
-				if(tmp[0] >= 58)
-					printf("tmp:%s\n\n", tmp);
+				//if(tmp[0] >= 58)
+				//	printf("tmp:%s\n\n", tmp);
 
 			}
 		}
