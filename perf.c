@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
 			printf("hahaha\n");
 
 		}
-		exit(0);
+			exit(0);
 		}
 		
 	}
