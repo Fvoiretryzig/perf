@@ -95,17 +95,17 @@ int main(int argc, char *argv[]) {
 					regex_t reg_per;
 					int p_per = regcomp(&reg_per, pattern_per, REG_EXTENDED);
 					
-					regmatch_t pm[1];	
+					regmatch_t pm_name[1]; regmatch_t pm_per[1];	
 					if(p_name!=0 || p_per!=0){
 						printf("error!");
 					}	
 					else{
-						p_name = regexec(&reg_name,temp,1,pm,0);
-						printf("r:%s\n", substr(temp,pm[0].rm_so,pm[0].rm_eo));
+						p_name = regexec(&reg_name,temp,1,pm_name,0);
+						printf("r:%s\n", substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo));
 						regfree(&reg_name);
 						
-						p_per = regexec(&reg_per, temp, 1, pm, 0);
-						printf("per:%s\n", substr(temp, pm[0].rm_so, pm[0].rm_eo));
+						p_per = regexec(&reg_per, temp, 1, pm_per, 0);
+						printf("per:%s\n", substr(temp, pm_per[0].rm_so, pm_per[0].rm_eo));
 						regfree(&reg_per);
 					}
 				}
