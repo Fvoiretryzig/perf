@@ -24,7 +24,7 @@ char* substr(const char*str, unsigned start, unsigned end)
   strncpy(stbuf, str + start, n);
   printf("stbuf:%s\n", stbuf);
   stbuf[n+1] = '\0';
-  return *stbuf;
+  return stbuf;
 }
 int main(int argc, char *argv[]) {
 	/*--------读取命令行参数--------*/
