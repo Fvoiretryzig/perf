@@ -59,13 +59,12 @@ int main(int argc, char *argv[]) {
 		sleep(2);
 		close(fd[1]);			
 		printf("this is father out while\n");
-		printf("fd[0]:%d fd[1]:%d", fd[0], fd[1]);
+		printf("fd[0]:%d fd[1]:%d\n", fd[0], fd[1]);
 		char buf[1024][1024];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
-		printf("len:%d\n", len);
+		printf("len:%d\n", len);	
 		if(len > 0)
-		for(int i = 0; i<3; i++)
-			printf("%s\n", buf[i]);
+			printf("%s\n", buf);
 		else
 			printf("len:%d\n", len);
 		//close(fd[1]);	//把父进程的写管道关掉
