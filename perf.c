@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
 		int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
 		dup2(open_fd,fd[1]);
 		char *buf;
-		while((read(fd[0], &buf, 1)>0){
+		while((read(fd[0], &buf, 1)>0)){
 			printf("this is father\n");
 			printf("%c\n", buf);
 			ssize_t len = read(fd[0], buf, 1024);
