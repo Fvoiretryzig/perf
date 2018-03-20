@@ -100,7 +100,7 @@ int main(int argc, char *argv[]) {
 						printf("temp:%s\n", temp);
 						p_name = regexec(&reg_name,temp,1,pm_name,0);
 						char *r_name = substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
-						if(!strcmp(r_name , "-----"))
+						if(!strcmp(r_name , "---"))
 							break;
 						printf("r:%s\n", r_name);
 						regfree(&reg_name);
