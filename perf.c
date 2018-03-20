@@ -89,8 +89,8 @@ int main(int argc, char *argv[]) {
 						printf("error!");
 					}	
 					else{
-					char *r = ""; strcpy(r, temp);
-					printf("this is hahah\n");
+					char *r = ""; printf("this is hahah\n");strcpy(r, temp);
+					
 					p=regexec(&reg,r,1,pm,0);
 					substr(r,pm[0].rm_so,pm[0].rm_eo);
 					printf("r:%s\n", r);
