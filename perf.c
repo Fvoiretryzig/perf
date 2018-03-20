@@ -96,11 +96,13 @@ int main(int argc, char *argv[]) {
 					else{
 					//char *r = ""; 
 					printf("this is hahah\n");	
-					
-					p=regexec(&reg,temp,1,pm,0);
+					char *r = "214135 2 32r 234 ewrdsr";
+					/*p=regexec(&reg,temp,1,pm,0);
 					substr(temp,pm[0].rm_so,pm[0].rm_eo);
-					printf("r:%s\n", substr(temp,pm[0].rm_so,pm[0].rm_eo));
-					/**/regfree(&reg);
+					printf("r:%s\n", substr(temp,pm[0].rm_so,pm[0].rm_eo));*/
+					p=regexec(&reg,r,1,pm,0);
+					substr(r,pm[0].rm_so,pm[0].rm_eo);
+					printf("r:%s\n", substr(r,pm[0].rm_so,pm[0].rm_eo));regfree(&reg);
 					}
 				}
 
