@@ -78,7 +78,7 @@ int main(int argc, char *argv[]) {
 						break;
 					else{
 						if(tmp[0]>58)
-							printf("name:%s\n", tmp)
+							printf("name:%s\n", tmp);
 					}
 				}
 			}
