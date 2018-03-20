@@ -20,9 +20,9 @@ char* substr(const char*str, unsigned start, unsigned end)
   unsigned n = end - start;
   static char stbuf[256];
   strncpy(stbuf, "", 256);
-  printf("start:%d end:%d\n", start, end);
+  //printf("start:%d end:%d\n", start, end);
   strncpy(stbuf, str + start, n);
-  printf("stbuf:%s\n", stbuf);
+  //printf("stbuf:%s\n", stbuf);
   stbuf[n+1] = '\0';
   return stbuf;
 }
@@ -68,18 +68,12 @@ int main(int argc, char *argv[]) {
 		printf("this is father out while\n");
 		char buf[1024][100];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
-		printf("len:%d\n", len);	
-		/*char *pattern = "[A-Za-z]+";
-		regex_t reg;
-		int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];*/	
-		//char *r = "forty";
-		/*p=regexec(&reg,r,1,pm,0);
-		substr(r,pm[0].rm_so,pm[0].rm_eo);
-		printf("r:%s\n", r);*/
+		if(len<0)
+			exit(1);
+		//printf("len:%d\n", len);	
 		char *temp = strtok(buf[0], " ");
 		//temp = strtok(temp, "\n");
 		for(int i = 0; i<300; i++){
-			//temp += strlen(temp) + 1;	//手动移指针
 			temp = strtok(NULL, "\n");
 			printf("temp%d:%s\n ", i, temp);			
 			if(temp == NULL){
@@ -108,7 +102,7 @@ int main(int argc, char *argv[]) {
 						regfree(&reg_name);
 						printf("temp:%s\n", temp);
 						p_per = regexec(&reg_per, temp, 1, pm_per, 0);
-						printf("per:%s\n\n", substr(temp, pm_per[0].rm_so, pm_per[0].rm_eo));
+						printf("per:%s%\n\n", substr(temp, pm_per[0].rm_so, pm_per[0].rm_eo));
 						regfree(&reg_per);
 					}
 				}
