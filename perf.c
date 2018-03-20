@@ -73,12 +73,12 @@ int main(int argc, char *argv[]) {
 				//printf("len: %d\n", strlen(temp));
 				char *tmp = strtok(temp," ");
 				if(cnt>11 && cnt<119 && !((cnt-2)%5))
-					printf("this is percent:%s\n", tmp);
+					printf("this is percent:%s cnt:%d\n", tmp, cnt);
 				if(cnt>11 && cnt<119 && !((cnt-1)%5) ){
 					if(!((tmp[0]>=58 && tmp[0]<=90) || (tmp[0]>=97 && tmp[0]<=122)))
 						cnt--;
 					else
-						printf("this is name:%s\n", tmp);
+						printf("this is name:%s cnt:%d\n", tmp, cnt);
 				}
 				//if(tmp[0] >= 58)
 				//	printf("tmp:%s\n\n", tmp);
