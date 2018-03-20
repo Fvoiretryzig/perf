@@ -86,25 +86,27 @@ int main(int argc, char *argv[]) {
 			
 			else{
 				printf("len: %d\n", strlen(temp));
-				if(i > 2){
-					char *pattern = "[A-Za-z,_]+";
-					regex_t reg;
-					int p = regcomp(&reg,pattern, REG_EXTENDED);
+				if(i >= 2){
+					char *pattern_name = "[A-Za-z,_]+";	//用来匹配名字的
+					regex_t reg_name;
+					int p_name = regcomp(&reg_name,pattern_name, REG_EXTENDED);
+					
+					char *pattern_per = "([0-9]{1,2})(.[0-9]{2})";	//匹配百分号的
+					regex_t reg_per;
+					int p_per = regcomp(&reg_per, pattern_per, REG_EXTENDED);
+					
 					regmatch_t pm[1];	
 					if(p!=0){
 						printf("error!");
 					}	
 					else{
-					//char *r = ""; 
-					//printf("this is hahah\n");	
-					//char *r = "214135232r234ewrdsr";
-					p=regexec(&reg,temp,1,pm,0);
-					substr(temp,pm[0].rm_so,pm[0].rm_eo);
-					printf("r:%s\n", substr(temp,pm[0].rm_so,pm[0].rm_eo));
-					/*p=regexec(&reg,r,1,pm,0);
-					printf("p:%d ", p);
-					substr(r,pm[0].rm_so,pm[0].rm_eo);
-					printf("r:%s\n", substr(r,pm[0].rm_so,pm[0].rm_eo));*/regfree(&reg);
+						p_name = regexec(&reg_name,temp,1,pm,0);
+						printf("r:%s\n", substr(temp,pm[0].rm_so,pm[0].rm_eo));
+						regfree(&reg_name);
+						
+						p_per = regexec(&reg_per, temp, 1, pm, 0);
+						printf("per:%s%\n", substr(temp, pm[0].rm_so, pm[0].rm_eo));
+						regfree(&reg_per);
 					}
 				}
 
