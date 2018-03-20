@@ -63,12 +63,8 @@ int main(int argc, char *argv[]) {
 		char buf[1024][100];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
 		printf("len:%d\n", len);	
-		for(int i = 0; i<sizeof(buf[0]); i++)
-		{
-			if(buf[0][i] == "\n")
-				printf(buf[0][i+1]);
-		}
-		printf("buf:%c\n", buf[0][100]);
+		
+		printf("buf:%c\n", buf[0][101]);
 		if(len > 0)
 			printf("%s\n", buf);
 		else
