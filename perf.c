@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
 			
 			else{
 				printf("len: %d\n", strlen(temp));
-				int cnt = 0; char *tmp = strtok(temp, " ");
+				char *tmp = strtok(temp, " ");
 				printf("tmp:%s\n", tmp);
 			/*	for(int j = 0; j<strlen(temp); j++){
 					cnt++;
