@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
 		printf("len:%d\n", len);	
 		char *pattern = "[A-Za-z]+";
 		regex_t reg;
-		int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];	
+		int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[10];	
 		//char *r = "forty";
 
 		char *temp = strtok(buf[0], " ");
