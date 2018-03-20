@@ -87,7 +87,7 @@ int main(int argc, char *argv[]) {
 			else{
 				printf("len: %d\n", strlen(temp));
 				if(i > 2){
-					char *pattern = "[A-Za-z]+";
+					char *pattern = "^[A-Za-z]+$";
 					regex_t reg;
 					int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];	
 					if(p!=0){
