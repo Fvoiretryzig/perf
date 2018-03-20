@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
 		//printf("%s\n", buf);
 		execvp("strace", child_argv);
 		
-		//close(fd[1]);
+		close(fd[1]);
 	}
 	else{
 		//父进程， 要通过管道读取strace的输出
