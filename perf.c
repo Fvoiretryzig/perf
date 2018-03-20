@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
 		//child_argv[5] = NULL;
 		//printf("%s\n",child_argv[5]);
 		int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
-		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
+		//dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		dup2(fd[1],open_fd);
 		execvp("strace", child_argv);
 		close(fd[1]);
