@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
 			cnt++;
 			temp += strlen(temp) + 1;	//手动移指针
 			temp = strtok(temp, "\n");
-			//printf("temp%d:%s\n ", i, temp);			
+			printf("temp%d:%s\n ", i, temp);			
 			if(temp == NULL){
 				printf("\n");
 				break;
