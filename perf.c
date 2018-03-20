@@ -60,17 +60,19 @@ int main(int argc, char *argv[]) {
 		printf("len:%d\n", len);	
 		char *temp = strtok(buf[0], " ");
 		for(int i = 0; i<300; i++){
-			temp = strtok(NULL, "\n");
+			temp = strtok(temp, "\n");
 			printf("temp%d:%s\n ", i, temp);			
 			if(temp == NULL){
 				printf("\n");
 				break;
+			
 			}	
 			
 			else{
 				printf("len: %d\n", strlen(temp));
 				char *tmp = strtok(temp, " ");
 				printf("tmp:%s\n", tmp);
+				temp += strlen(temp) + 1;
 			/*	for(int j = 0; j<strlen(temp); j++){
 					cnt++;
 					tmp = strtok(NULL, "");
