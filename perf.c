@@ -69,8 +69,10 @@ int main(int argc, char *argv[]) {
 		char *pattern = "[A-Za-z]+";
 		regex_t reg;
 		int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];	
-		//char *r = "forty";
-
+		char *r = "forty";
+		p=regexec(&reg,r,1,pm,0);
+		substr(r,pm[0].rm_so,pm[0].rm_eo);
+		printf("r:%s\n", r);
 		char *temp = strtok(buf[0], " ");
 		//temp = strtok(temp, "\n");
 		for(int i = 0; i<300; i++){
@@ -94,9 +96,7 @@ int main(int argc, char *argv[]) {
 					p=regexec(&reg,temp,1,pm,0);
 					substr(temp,pm[0].rm_so,pm[0].rm_eo);
 					printf("r:%s\n", temp);
-					/*p=regexec(&reg,r,1,pm,0);
-					substr(r,pm[0].rm_so,pm[0].rm_eo);
-					printf("r:%s\n", r);*/
+					/**/
 					}
 				}
 
