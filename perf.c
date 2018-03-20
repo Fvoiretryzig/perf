@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
 		printf("len:%d\n", len);	
 		char *temp = strtok(buf[0], " ");
 		for(int i = 0; i<300; i++){
-			temp = strtok(NULL, "\n");
+			temp = strtok(buf[0], "\n");
 			printf("temp%d:%s\n ", i, temp);			
 			if(temp == NULL){
 				printf("\n");
