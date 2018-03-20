@@ -66,6 +66,8 @@ int main(int argc, char *argv[]) {
 		printf("this is father out while\n");
 		close(fd[1]);	//把父进程的写管道关掉
 		/*---------初步尝试---------*/
+		int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
+		dup2(open_fd,fd[0]);
 		char *buf;
 		while(1){
 			printf("this is father\n");
