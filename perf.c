@@ -58,10 +58,9 @@ int main(int argc, char *argv[]) {
 		
 		sleep(2);
 		close(fd[1]);	//把父进程的写管道关掉
-		dup2(fd[0], 0);
+		dup2(fd[0], 1);
 		printf("this is father out while\n");
 		
-		/*---------初步尝试---------*/
 		//int open_fd = open("mystatus.txt",O_CREAT | O_RDWR | O_TRUNC,S_IRUSR | S_IWUSR);
 		//dup2(open_fd,fd[1]);
 		char *buf;
