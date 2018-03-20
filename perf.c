@@ -19,7 +19,7 @@ char* substr(const char*str, unsigned start, unsigned end)
 {
   unsigned n = end - start;
   static char stbuf[256];
-  stbuf[256] = "";
+  strncpy(stbuf, "", 256);
   printf("start:%d end:%d\n", start, end);
   strncpy(stbuf, str + start, n);
   printf("stbuf:%s\n", stbuf);
