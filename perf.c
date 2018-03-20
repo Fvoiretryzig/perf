@@ -69,20 +69,13 @@ int main(int argc, char *argv[]) {
 		char *pattern = "[A-Za-z]+";
 		regex_t reg;
 		int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];	
-		char *r = "forty";
-		if(p!=0){
-			printf("error!");
-		}	
-		else{
-			p=regexec(&reg,r,1,pm,0);
-			substr(r,pm[0].rm_so,pm[0].rm_eo);
-			printf("r:%s\n", r);
-		}
+		//char *r = "forty";
+
 		char *temp = strtok(buf[0], " ");
 		temp = strtok(temp, "\n");
 		for(int i = 0; i<300; i++){
-			temp += strlen(temp) + 1;	//手动移指针
-			temp = strtok(temp, "\n");
+			//temp += strlen(temp) + 1;	//手动移指针
+			temp = strtok(NULL, "\n");
 			printf("temp%d:%s\n ", i, temp);			
 			if(temp == NULL){
 				printf("\n");
@@ -91,22 +84,21 @@ int main(int argc, char *argv[]) {
 			
 			else{
 				printf("len: %d\n", strlen(temp));
-			
-				/*char *tmp = strtok(temp," ");
-				if(cnt>11 && cnt<119 && !((cnt-2)%5))
-					printf("this is percent:%s cnt:%d\n", tmp, cnt);
-				if(cnt>11 && cnt<119 && !((cnt-1)%5) ){
-					if(!((tmp[0]>=58 && tmp[0]<=90) || (tmp[0]>=97 && tmp[0]<=122)))
-						cnt--;
-					else
-						printf("this is name:%s cnt:%d\n", tmp, cnt);
-				}*/
-				//if(tmp[0] >= 58)
-				//	printf("tmp:%s\n\n", tmp);
+				if(i == 2){
+					if(p!=0){
+						printf("error!");
+					}	
+					else{
+					char *r; strcpy(r, temp);
+					p=regexec(&reg,r,1,pm,0);
+					substr(r,pm[0].rm_so,pm[0].rm_eo);
+					printf("r:%s\n", r);
+					}
+				}
 
 			}
 		}
-
+		regfree(reg);
 				
 			exit(0);
 	}
