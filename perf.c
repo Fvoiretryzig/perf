@@ -70,8 +70,8 @@ int main(int argc, char *argv[]) {
 			}	
 			
 			else{
-				//printf("len: %d\n", strlen(temp));
-				char *tmp = strtok(temp," ");
+				printf("len: %d\n", strlen(temp));
+				/*char *tmp = strtok(temp," ");
 				if(cnt>11 && cnt<119 && !((cnt-2)%5))
 					printf("this is percent:%s cnt:%d\n", tmp, cnt);
 				if(cnt>11 && cnt<119 && !((cnt-1)%5) ){
@@ -79,16 +79,13 @@ int main(int argc, char *argv[]) {
 						cnt--;
 					else
 						printf("this is name:%s cnt:%d\n", tmp, cnt);
-				}
+				}*/
 				//if(tmp[0] >= 58)
 				//	printf("tmp:%s\n\n", tmp);
 
 			}
 		}
-		/*char *temp = strtok(buf[0], " ");
-		printf("temp1:%s\n", temp);
-		temp = strtok(NULL, " ");
-		printf("temp2:%s\n", temp);*/
+
 				
 			exit(0);
 	}
