@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
 				printf("len: %d\n", strlen(temp));
 				char *tmp = strtok(temp, " ");
 				printf("tmp:%s\n", tmp);
-				temp += strlen(temp) + 1;
+				temp += strlen(temp) ;
 			/*	for(int j = 0; j<strlen(temp); j++){
 					cnt++;
 					tmp = strtok(NULL, "");
