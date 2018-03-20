@@ -64,7 +64,11 @@ int main(int argc, char *argv[]) {
 			temp = strtok(NULL, " ");
 			printf("temp%d:%s ", i, temp);
 			if(temp == NULL)
+			{
+				printf("\n");
 				break;
+			}
+				
 			else
 				printf("len: %d\n", strlen(temp));
 		}
