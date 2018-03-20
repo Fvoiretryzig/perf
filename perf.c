@@ -66,11 +66,10 @@ int main(int argc, char *argv[]) {
 		char buf[1024][100];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
 		printf("len:%d\n", len);	
-		char *pattern = "";
-		strcpy(pattern, "[A-Za-z]+");
+		char *pattern = "[A-Za-z]+";
 		regex_t reg;
 		int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];	
-		char *r = ""; strcpy(r, "forty");
+		char *r = "forty";
 		if(p!=0){
 			printf("error!");
 		}	
