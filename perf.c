@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
 		char *buf;
 		while(1){
 			printf("this is father\n");
-			dup(1,fd[2]);
+			dup2(1,fd[2]);
 			ssize_t len = read(fd[0], buf, 1024);
 			printf("%d\n", len);
 			if(len > 0)
