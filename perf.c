@@ -100,7 +100,8 @@ int main(int argc, char *argv[]) {
 					/*p=regexec(&reg,temp,1,pm,0);
 					substr(temp,pm[0].rm_so,pm[0].rm_eo);
 					printf("r:%s\n", substr(temp,pm[0].rm_so,pm[0].rm_eo));*/
-					p=regexec(&reg,r,4,pm,0);
+					p=regexec(&reg,r,1,pm,0);
+					printf("p:%d ", p);
 					substr(r,pm[0].rm_so,pm[0].rm_eo);
 					printf("r:%s\n", substr(r,pm[0].rm_so,pm[0].rm_eo));regfree(&reg);
 					}
