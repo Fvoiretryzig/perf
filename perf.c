@@ -19,6 +19,7 @@ char* substr(const char*str, unsigned start, unsigned end)
 {
   unsigned n = end - start;
   static char stbuf[256];
+  printf("start:%d end:%d\n", start, end);
   strncpy(stbuf, str + start, n);
   printf("stbuf:%s\n", stbuf);
   stbuf[n+1] = '\0';
@@ -106,7 +107,7 @@ int main(int argc, char *argv[]) {
 						regfree(&reg_name);
 						printf("temp:%s\n", temp);
 						p_per = regexec(&reg_per, temp, 1, pm_per, 0);
-						printf("per:%s\n", substr(temp, pm_per[0].rm_so, pm_per[0].rm_eo));
+						printf("per:%s\n\n", substr(temp, pm_per[0].rm_so, pm_per[0].rm_eo));
 						regfree(&reg_per);
 					}
 				}
