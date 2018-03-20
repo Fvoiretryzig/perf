@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
 					int p_per = regcomp(&reg_per, pattern_per, REG_EXTENDED);
 					
 					regmatch_t pm[1];	
-					if(p!=0){
+					if(p_name!=0 || p_per!=0){
 						printf("error!");
 					}	
 					else{
