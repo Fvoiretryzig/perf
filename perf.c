@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
 		//char *r = "forty";
 
 		char *temp = strtok(buf[0], " ");
-		temp = strtok(temp, "\n");
+		//temp = strtok(temp, "\n");
 		for(int i = 0; i<300; i++){
 			//temp += strlen(temp) + 1;	//手动移指针
 			temp = strtok(NULL, "\n");
