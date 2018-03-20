@@ -49,6 +49,7 @@ int main(int argc, char *argv[]) {
 		child_argv[argc+2] = NULL;
 		close(fd[0]);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
+		printf("fd[0]:%d fd[1]:%d", fd[0], fd[1]);
 		char *buf;
 		read(fd[0], buf, 4);
 		printf("%s\n", buf);
@@ -61,6 +62,7 @@ int main(int argc, char *argv[]) {
 		//父进程， 要通过管道读取strace的输出
 		
 		sleep(2);
+		printf("fd[0]:%d fd[1]:%d", fd[0], fd[1]);
 		//close(fd[1]);	//把父进程的写管道关掉
 		dup2(fd[0], fd[1]);
 		printf("this is father out while\n");
