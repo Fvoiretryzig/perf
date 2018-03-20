@@ -98,7 +98,7 @@ int main(int argc, char *argv[]) {
 					}	
 					else{
 						p_name = regexec(&reg_name,temp,1,pm_name,0);
-						char *r_name = substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo)
+						char *r_name = substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
 						printf("r:%s\n", r_name);
 						regfree(&reg_name);
 						
