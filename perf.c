@@ -100,13 +100,13 @@ int main(int argc, char *argv[]) {
 					p=regexec(&reg,temp,1,pm,0);
 					substr(temp,pm[0].rm_so,pm[0].rm_eo);
 					printf("r:%s\n", substr(temp,pm[0].rm_so,pm[0].rm_eo));
-					/**/
+					/**/regfree(&reg);
 					}
 				}
 
 			}
 		}
-		regfree(&reg);
+		
 				
 			exit(0);
 	}
