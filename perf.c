@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 				break;
 			}	
 			
-			else{
+			/*else{
 				printf("len: %d\n", strlen(temp));
 				int cnt = 0; char *tmp = strtok(temp, " ");
 				printf("tmp:%s\n", tmp);
@@ -81,7 +81,7 @@ int main(int argc, char *argv[]) {
 							printf("name:%s\n", tmp);
 					}
 				}
-			}
+			}*/
 		}
 		/*char *temp = strtok(buf[0], " ");
 		printf("temp1:%s\n", temp);
