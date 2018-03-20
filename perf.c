@@ -14,11 +14,6 @@ struct systemcall
 };
 struct systemcall syscall[300];
 
-void do_str(char *s){
-}
-void applychar(char **res,int n){
-    *res=(char*)malloc(sizeof(char)*n);
-}
 int main(int argc, char *argv[]) {
 	/*--------读取命令行参数--------*/
 	for (int i = 0; i < argc; i++) {
@@ -64,15 +59,17 @@ int main(int argc, char *argv[]) {
 		ssize_t len = read(fd[0], buf, sizeof(buf));
 		printf("len:%d\n", len);	
 		char *temp = strtok(buf[0], " ");
+		for(int i = 0; i<300; i++)
+		{
+			temp = strtok(NULL, " ");
+			printf("temp%d:%s\n", i, temp);
+		}
+		/*char *temp = strtok(buf[0], " ");
 		printf("temp1:%s\n", temp);
 		temp = strtok(NULL, " ");
-		printf("temp2:%s\n", temp);
+		printf("temp2:%s\n", temp);*/
 		
-		printf("buf:%c\n", buf[0][201]);
-		//if(len > 0)
-			//printf("%s\n", buf);
-		//else
-			//printf("len:%d\n", len);
+
 				
 			exit(0);
 	}
