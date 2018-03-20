@@ -59,8 +59,9 @@ int main(int argc, char *argv[]) {
 		printf("len:%d\n", len);	
 		char *temp = strtok(buf[0], " ");
 		temp = strtok(temp+strlen(temp)+1, "\n");
+		temp += 2;
 		for(int i = 0; i<300; i++){
-			temp = strtok(NULL, "\n");
+			temp = strtok(temp, "\n");
 			printf("temp%d:%s\n ", i, temp);			
 			if(temp == NULL){
 				printf("\n");
@@ -70,6 +71,10 @@ int main(int argc, char *argv[]) {
 			
 			else{
 				printf("len: %d\n", strlen(temp));
+				pritnf("temp:0x%x ", temp);
+				char *tmp = strtok(temp," ");
+				printf("tmep:0x%x\n", temp);
+				temp += strlen(temp) + 1;
 			/*	char *tmp = strtok(temp, " ");
 				printf("tmp:%s\n", tmp);
 				
