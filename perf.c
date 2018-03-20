@@ -6,7 +6,7 @@
 #include <assert.h>
 #include <fcntl.h>
 #include <sys/stat.h>
-#include<regex.h>
+#include <regex.h>
 
 struct systemcall
 {
@@ -15,6 +15,14 @@ struct systemcall
 };
 struct systemcall syscall[300];
 
+char* substr(const char*str, unsigned start, unsigned end)
+{
+  unsigned n = end - start;
+  static char stbuf[256];
+  strncpy(stbuf, str + start, n);
+  stbuf[n+1] = '\0';
+  return stbuf;
+}
 int main(int argc, char *argv[]) {
 	/*--------读取命令行参数--------*/
 	for (int i = 0; i < argc; i++) {
@@ -57,11 +65,23 @@ int main(int argc, char *argv[]) {
 		printf("this is father out while\n");
 		char buf[1024][100];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
-		printf("len:%d\n", len);	
+		//printf("len:%d\n", len);	
+		char *pattern = "";
+		strcpy(pattern, "[A-Za-z]+");
+		regex_t reg;
+		int p = regcomp(&reg,pattern,REG_ICASE);regmatch_t pm[1];	
+		char *r = ""; strcpy(r, "forty");
+		if(p!=0){
+			printf("error!");
+		}	
+		else{
+			p=regexec(&reg,r,1,pm,0);
+			substr(r,pm[0].rm_so,pm[0].rm_eo);
+			printf("r:%s\n", r);
+		}
 		char *temp = strtok(buf[0], " ");
-		temp = strtok(temp, "\n"); int cnt = 0;
+		temp = strtok(temp, "\n");
 		for(int i = 0; i<300; i++){
-			cnt++;
 			temp += strlen(temp) + 1;	//手动移指针
 			temp = strtok(temp, "\n");
 			printf("temp%d:%s\n ", i, temp);			
@@ -72,6 +92,7 @@ int main(int argc, char *argv[]) {
 			
 			else{
 				printf("len: %d\n", strlen(temp));
+			
 				/*char *tmp = strtok(temp," ");
 				if(cnt>11 && cnt<119 && !((cnt-2)%5))
 					printf("this is percent:%s cnt:%d\n", tmp, cnt);
