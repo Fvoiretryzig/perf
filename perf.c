@@ -89,11 +89,14 @@ int main(int argc, char *argv[]) {
 						printf("error!");
 					}	
 					else{
-					char *r = ""; strncpy(r, temp, strlen(temp));
-					printf("this is hahah\n");
-					p=regexec(&reg,r,1,pm,0);
+					//char *r = ""; 
+					printf("this is hahah\n");	
+					p=regexec(&reg,temp,1,pm,0);
+					substr(temp,pm[0].rm_so,pm[0].rm_eo);
+					printf("r:%s\n", temp);
+					/*p=regexec(&reg,r,1,pm,0);
 					substr(r,pm[0].rm_so,pm[0].rm_eo);
-					printf("r:%s\n", r);
+					printf("r:%s\n", r);*/
 					}
 				}
 
