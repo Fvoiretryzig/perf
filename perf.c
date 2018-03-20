@@ -63,13 +63,13 @@ int main(int argc, char *argv[]) {
 		{
 			temp = strtok(NULL, " ");
 			printf("temp%d:%s\n", i, temp);
+			if(!strcmp(temp, "total"))
+				break;
 		}
 		/*char *temp = strtok(buf[0], " ");
 		printf("temp1:%s\n", temp);
 		temp = strtok(NULL, " ");
 		printf("temp2:%s\n", temp);*/
-		
-
 				
 			exit(0);
 	}
