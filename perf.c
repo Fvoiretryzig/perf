@@ -65,10 +65,10 @@ int main(int argc, char *argv[]) {
 		printf("len:%d\n", len);	
 		
 		printf("buf:%c\n", buf[0][201]);
-		if(len > 0)
-			printf("%s\n", buf);
-		else
-			printf("len:%d\n", len);
+		//if(len > 0)
+			//printf("%s\n", buf);
+		//else
+			//printf("len:%d\n", len);
 				
 			exit(0);
 	}
