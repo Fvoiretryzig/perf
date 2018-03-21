@@ -92,6 +92,7 @@ int main(int argc, char *argv[]) {
 						printf("error!");
 					}	
 					else{
+						printf("temp:%s\n", temp)
 						p_name = regexec(&reg_name,temp,1,pm_name,0);
 						substr_name(temp,pm_name[0].rm_so,pm_name[0].rm_eo,cnt);
 						if(!((syscall[cnt].name[0]>=65 && syscall[cnt].name[0]<=90) ||(syscall[cnt].name[0]>=97 && syscall[cnt].name[0]<=122)))
