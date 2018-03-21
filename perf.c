@@ -15,14 +15,21 @@ struct systemcall
 };
 struct systemcall syscall[300];
 
-char* substr(const char*str, unsigned start, unsigned end)
+char* substr_name(const char*str, unsigned start, unsigned end)
 {
   unsigned n = end - start;
-  static char stbuf[256];
+  static char stbuf_name[256];
   strncpy(stbuf, "", 256);
-  //printf("start:%d end:%d\n", start, end);
   strncpy(stbuf, str + start, n);
-  //printf("stbuf:%s\n", stbuf);
+  stbuf[n+1] = '\0';
+  return stbuf;
+}
+char* substr_per(const char*str, unsigned start, unsigned end)
+{
+  unsigned n = end - start;
+  static char stbuf_per[256];
+  strncpy(stbuf, "", 256);
+  strncpy(stbuf, str + start, n);
   stbuf[n+1] = '\0';
   return stbuf;
 }
@@ -100,7 +107,7 @@ int main(int argc, char *argv[]) {
 						//printf("temp:%s\n", temp);
 						p_name = regexec(&reg_name,temp,1,pm_name,0);
 						//char *r_name = substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
-						syscall[i-2].name = substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
+						syscall[i-2].name = substr_name(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
 						if(!((syscall[i-2].name[0]>=65 && syscall[i-2].name[0]<=90) ||(syscall[i-2].name[0]>=97 && syscall[i-2].name[0]<=122)))
 							break;
 						printf("r:%s\n", syscall[i-2].name);
@@ -108,7 +115,7 @@ int main(int argc, char *argv[]) {
 						
 						p_per = regexec(&reg_per, temp, 1, pm_per, 0);
 						printf("r:%s\n", syscall[i-2].name);
-						char *r_per = substr(temp,pm_per[0].rm_so,pm_per[0].rm_eo);
+						char *r_per = substr_per(temp,pm_per[0].rm_so,pm_per[0].rm_eo);
 						printf("r:%s\n", syscall[i-2].name);
 						printf("per:%s\n\n", r_per);
 						//printf("%s: %s%\n\n", r_name, r_per);
