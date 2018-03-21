@@ -11,13 +11,12 @@
 struct systemcall
 {
 	char *per_time;
-	char *name;
+	char name[256];
 };
 struct systemcall syscall[300];
 char* substr_name(const char*str, unsigned start, unsigned end, int count)
 {
   unsigned n = end - start;
-  printf("haha\n");
   strncpy(syscall[count].name, "", 256);
   strncpy(syscall[count].name, str + start, n);
   syscall[count].name[n+1] = '\0';
