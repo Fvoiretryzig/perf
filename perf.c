@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
 						printf("error!");
 					}	
 					else{
-						printf("temp:%s\n", temp);
+						//printf("temp:%s\n", temp);
 						p_name = regexec(&reg_name,temp,1,pm_name,0);
 						char *r_name = substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
 						if(!((r_name[0]>=65 && r_name[0]<=90) ||(r_name[0]>=97 && r_name[0]<=122)))
@@ -106,8 +106,11 @@ int main(int argc, char *argv[]) {
 						regfree(&reg_name);
 						
 						p_per = regexec(&reg_per, temp, 1, pm_per, 0);
+						printf("r:%s\n", r_name);
 						char *r_per = substr(temp,pm_per[0].rm_so,pm_per[0].rm_eo);
-						printf("%s: %s%\n\n", r_name, r_per);
+						printf("r:%s\n", r_name);
+						printf("per:%s\n\n", r_per);
+						//printf("%s: %s%\n\n", r_name, r_per);
 						regfree(&reg_per);
 					}
 				}
