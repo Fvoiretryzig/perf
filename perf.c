@@ -75,6 +75,7 @@ int main(int argc, char *argv[]) {
 		printf("this is father out while\n");
 		char buf[1024][100];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
+		int cnt = 0;
 		if(len<0)
 			exit(1);
 		//printf("len:%d\n", len);	
@@ -87,7 +88,6 @@ int main(int argc, char *argv[]) {
 				printf("\n");
 				break;
 			}	
-			
 			else{
 				//printf("len: %d\n", strlen(temp));
 				if(i >= 2){
@@ -107,27 +107,27 @@ int main(int argc, char *argv[]) {
 						//printf("temp:%s\n", temp);
 						p_name = regexec(&reg_name,temp,1,pm_name,0);
 						//char *r_name = substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
-						syscall[i-2].name = substr_name(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
-						if(!((syscall[i-2].name[0]>=65 && syscall[i-2].name[0]<=90) ||(syscall[i-2].name[0]>=97 && syscall[i-2].name[0]<=122)))
+						syscall[cnt].name = substr_name(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
+						if(!((syscall[cnt].name[0]>=65 && syscall[cnt].name[0]<=90) ||(syscall[cnt].name[0]>=97 && syscall[cnt].name[0]<=122)))
 							break;
-						printf("r:%s\n", syscall[i-2].name);
+						//printf("r:%s\n", syscall[i-2].name);
 						regfree(&reg_name);
 						
 						p_per = regexec(&reg_per, temp, 1, pm_per, 0);
-						printf("r:%s\n", syscall[i-2].name);
-						char *r_per = substr_per(temp,pm_per[0].rm_so,pm_per[0].rm_eo);
-						printf("r:%s\n", syscall[i-2].name);
-						printf("per:%s\n\n", r_per);
+						//char *r_per = substr_per(temp,pm_per[0].rm_so,pm_per[0].rm_eo);
+						syscall[cnt].per_time = substr_per(temp,pm_per[0].rm_so,pm_per[0].rm_eo);
+						//printf("per:%s\n\n", r_per);
 						//printf("%s: %s%\n\n", r_name, r_per);
 						regfree(&reg_per);
+						cnt++;
 					}
 				}
-
-			}
-		}
+			}	
+		}		
+		for(int i = 0; i<cnt; i++)
+			printf("%s:%s%\n", syscall[i].name,syscall[i].per_time);
+		exit(0);
 		
-				
-			exit(0);
 	}
 	return 0;
 }
