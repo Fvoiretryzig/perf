@@ -107,7 +107,7 @@ int main(int argc, char *argv[]) {
 						
 						p_per = regexec(&reg_per, temp, 1, pm_per, 0);
 						char *r_per = substr(temp,pm_per[0].rm_so,pm_per[0].rm_eo);
-						printf("%s: %s%\n\n", r_name, r_per));
+						printf("%s: %s%\n\n", r_name, r_per);
 						regfree(&reg_per);
 					}
 				}
