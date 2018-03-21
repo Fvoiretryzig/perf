@@ -53,39 +53,31 @@ int main(int argc, char *argv[]) {
 		char **temp = argv;
 		for(int i = 1; i<argc; i++){
 			child_argv[i+2] = (char*)temp[i];
-			printf("child_argv[i+2]:%s\n", child_argv[i+2]);
 		}
 		printf("argc:%d\n", argc);
 		child_argv[argc+2] = NULL;
 		close(fd[0]);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
 		execvp("strace", child_argv);
-		printf("hahaha\n");
 		//close(fd[1]);
 	}
 	else{
 		//父进程， 要通过管道读取strace的输出
-		
 		sleep(1);
 		close(fd[1]);			
-		printf("this is father out while\n");
 		char buf[1024][100];
 		ssize_t len = read(fd[0], buf, sizeof(buf));
 		int cnt = 0;
 		if(len<0)
 			exit(1);
-		//printf("len:%d\n", len);	
 		char *temp = strtok(buf[0], " ");
-		//temp = strtok(temp, "\n");
 		for(int i = 0; i<300; i++){
-			temp = strtok(NULL, "\n");
-			//printf("temp%d:%s\n ", i, temp);			
+			temp = strtok(NULL, "\n");		
 			if(temp == NULL){
 				printf("\n");
 				break;
 			}	
 			else{
-				//printf("len: %d\n", strlen(temp));
 				if(i >= 2){
 					char *pattern_name = "[A-Za-z]+([0-9]+)?";	//用来匹配名字的
 					regex_t reg_name;
@@ -100,20 +92,16 @@ int main(int argc, char *argv[]) {
 						printf("error!");
 					}	
 					else{
-						//printf("temp:%s\n", temp);
 						p_name = regexec(&reg_name,temp,1,pm_name,0);
 						substr_name(temp,pm_name[0].rm_so,pm_name[0].rm_eo,cnt);
 						if(!((syscall[cnt].name[0]>=65 && syscall[cnt].name[0]<=90) ||(syscall[cnt].name[0]>=97 && syscall[cnt].name[0]<=122)))
 							break;
-						//printf("r:%s\n", syscall[i-2].name);
 						regfree(&reg_name);
 						
 						p_per = regexec(&reg_per, temp, 1, pm_per, 0);
-						//char *r_per = substr_per(temp,pm_per[0].rm_so,pm_per[0].rm_eo);
 						substr_per(temp,pm_per[0].rm_so,pm_per[0].rm_eo, cnt);
-						//printf("per:%s\n\n", r_per);
-						//printf("%s: %s%\n\n", r_name, r_per);
 						regfree(&reg_per);
+						
 						cnt++;
 					}
 				}
