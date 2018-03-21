@@ -24,7 +24,7 @@ void substr_name(const char*str, unsigned start, unsigned end, int count)
 char* substr_per(const char*str, unsigned start, unsigned end, int count)
 {
   unsigned n = end - start;
-  strncpy(syscall[count].per_time, "");
+  strcpy(syscall[count].per_time, "");
   strncpy(syscall[count].per_time, str + start, n);
   syscall[count].per_time[n+1] = '\0';
 }
