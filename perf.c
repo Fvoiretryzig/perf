@@ -29,7 +29,7 @@ char* substr_per(const char*str, unsigned start, unsigned end)
   unsigned n = end - start;
   static char stbuf_per[256];
   strncpy(stbuf_per, "", 256);
-  strncpy(stbstbuf_peruf, str + start, n);
+  strncpy(stbuf_per, str + start, n);
   stbuf_per[n+1] = '\0';
   return stbuf_per;
 }
