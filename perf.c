@@ -14,11 +14,11 @@ struct systemcall
 	char *name;
 };
 struct systemcall syscall[300];
-
+char stbuf_name[256];
 char* substr_name(const char*str, unsigned start, unsigned end)
 {
   unsigned n = end - start;
-  static char stbuf_name[256];
+  ;
   strncpy(stbuf_name, "", 256);
   strncpy(stbuf_name, str + start, n);
   stbuf_name[n+1] = '\0';
