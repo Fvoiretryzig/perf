@@ -10,7 +10,7 @@
 
 struct systemcall
 {
-	float per_time;
+	char *per_time;
 	char *name;
 };
 struct systemcall syscall[300];
