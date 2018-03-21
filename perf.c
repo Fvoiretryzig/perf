@@ -18,6 +18,7 @@ char* substr_name(const char*str, unsigned start, unsigned end, int count)
 {
   unsigned n = end - start;
   strncpy(syscall[count].name, "", 256);
+  printf("jaja\n");
   strncpy(syscall[count].name, str + start, n);
   syscall[count].name[n+1] = '\0';
   return syscall[count].name;
