@@ -11,7 +11,7 @@
 struct systemcall
 {
 	char *per_time;
-	static char name[256];
+	char name[256];
 };
 struct systemcall syscall[300];
 char* substr_name(const char*str, unsigned start, unsigned end, int count)
