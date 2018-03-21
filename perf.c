@@ -10,7 +10,7 @@
 
 struct systemcall
 {
-	char *per_time;
+	char per_time[10];
 	char name[256];
 };
 struct systemcall syscall[300];
@@ -18,20 +18,17 @@ void substr_name(const char*str, unsigned start, unsigned end, int count)
 {
   unsigned n = end - start;
   strcpy(syscall[count].name, "");
-  printf("jaja\n");
   strncpy(syscall[count].name, str + start, n);
   syscall[count].name[n+1] = '\0';
-  //return syscall[count].name;
 }
-char* substr_per(const char*str, unsigned start, unsigned end)
+char* substr_per(const char*str, unsigned start, unsigned end, int count)
 {
   unsigned n = end - start;
-  static char stbuf_per[256];
-  strncpy(stbuf_per, "", 256);
-  strncpy(stbuf_per, str + start, n);
-  stbuf_per[n+1] = '\0';
-  return stbuf_per;
+  strncpy(syscall[count].per_time, "");
+  strncpy(syscall[count].per_time, str + start, n);
+  syscall[count].per_time[n+1] = '\0';
 }
+
 int main(int argc, char *argv[]) {
 	/*--------读取命令行参数--------*/
 	for (int i = 0; i < argc; i++) {
@@ -105,7 +102,6 @@ int main(int argc, char *argv[]) {
 					else{
 						//printf("temp:%s\n", temp);
 						p_name = regexec(&reg_name,temp,1,pm_name,0);
-						//char *r_name = substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
 						substr_name(temp,pm_name[0].rm_so,pm_name[0].rm_eo,cnt);
 						if(!((syscall[cnt].name[0]>=65 && syscall[cnt].name[0]<=90) ||(syscall[cnt].name[0]>=97 && syscall[cnt].name[0]<=122)))
 							break;
@@ -114,7 +110,7 @@ int main(int argc, char *argv[]) {
 						
 						p_per = regexec(&reg_per, temp, 1, pm_per, 0);
 						//char *r_per = substr_per(temp,pm_per[0].rm_so,pm_per[0].rm_eo);
-						syscall[cnt].per_time = substr_per(temp,pm_per[0].rm_so,pm_per[0].rm_eo);
+						substr_per(temp,pm_per[0].rm_so,pm_per[0].rm_eo, cnt);
 						//printf("per:%s\n\n", r_per);
 						//printf("%s: %s%\n\n", r_name, r_per);
 						regfree(&reg_per);
