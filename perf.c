@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
 	/*--------读取命令行参数--------*/
 	for (int i = 0; i < argc; i++) {
 		assert(argv[i]); // specification
-	    printf("argv[%d] = %s\n", i, argv[i]);
+	    //printf("argv[%d] = %s\n", i, argv[i]);
 	}
 	assert(!argv[argc]); // specification	
 	if(argc == 1){
@@ -43,18 +43,18 @@ int main(int argc, char *argv[]) {
 	/*--------连接管道，创建子进程--------*/
 	int fd[2] = {0, 0};
 	if(pipe(fd) != 0){
-		printf("pipe error\n");
+		//printf("pipe error\n");
 		exit(1);
 	}
 	pid_t pid = fork();
 	if(pid == 0){
 		//pid为0是子进程，子进程调用execve执行strace去读系统调用次数
-		char *child_argv[100]={"strace","-w","-c", "", "","","","","","","","","",""};
+		char *child_argv[100]={"strace","-w","-c", "", "","","","","","","","","","","","","","","","","","",""};
 		char **temp = argv;
 		for(int i = 1; i<argc; i++){
 			child_argv[i+2] = (char*)temp[i];
 		}
-		printf("argc:%d\n", argc);
+		//sprintf("argc:%d\n", argc);
 		child_argv[argc+2] = NULL;
 		close(fd[0]);
 		dup2(fd[1],2);	//把strace的输出连接到子进程的写管道
