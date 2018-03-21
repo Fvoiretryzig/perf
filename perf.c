@@ -99,16 +99,17 @@ int main(int argc, char *argv[]) {
 					else{
 						//printf("temp:%s\n", temp);
 						p_name = regexec(&reg_name,temp,1,pm_name,0);
-						char *r_name = substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
+						//char *r_name = substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
+						syscall[i-2].name = substr(temp,pm_name[0].rm_so,pm_name[0].rm_eo);
 						if(!((r_name[0]>=65 && r_name[0]<=90) ||(r_name[0]>=97 && r_name[0]<=122)))
 							break;
-						printf("r:%s\n", r_name);
+						printf("r:%s\n", syscall[i-2].name);
 						regfree(&reg_name);
 						
 						p_per = regexec(&reg_per, temp, 1, pm_per, 0);
-						printf("r:%s\n", r_name);
+						printf("r:%s\n", syscall[i-2].name);
 						char *r_per = substr(temp,pm_per[0].rm_so,pm_per[0].rm_eo);
-						printf("r:%s\n", r_name);
+						printf("r:%s\n", syscall[i-2].name);
 						printf("per:%s\n\n", r_per);
 						//printf("%s: %s%\n\n", r_name, r_per);
 						regfree(&reg_per);
