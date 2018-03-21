@@ -19,19 +19,19 @@ char* substr_name(const char*str, unsigned start, unsigned end)
 {
   unsigned n = end - start;
   static char stbuf_name[256];
-  strncpy(stbuf, "", 256);
-  strncpy(stbuf, str + start, n);
-  stbuf[n+1] = '\0';
-  return stbuf;
+  strncpy(stbuf_name, "", 256);
+  strncpy(stbuf_name, str + start, n);
+  stbuf_name[n+1] = '\0';
+  return stbuf_name;
 }
 char* substr_per(const char*str, unsigned start, unsigned end)
 {
   unsigned n = end - start;
   static char stbuf_per[256];
-  strncpy(stbuf, "", 256);
-  strncpy(stbuf, str + start, n);
-  stbuf[n+1] = '\0';
-  return stbuf;
+  strncpy(stbuf_per, "", 256);
+  strncpy(stbstbuf_peruf, str + start, n);
+  stbuf_per[n+1] = '\0';
+  return stbuf_per;
 }
 int main(int argc, char *argv[]) {
 	/*--------读取命令行参数--------*/
