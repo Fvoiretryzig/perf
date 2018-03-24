@@ -108,7 +108,7 @@ int main(int argc, char *argv[]) {
 			}	
 		}		
 		for(int i = 0; i<cnt; i++)
-			printf("%s:%s%\n", syscall[i].name,syscall[i].per_time);
+			printf("%s:%s%%\n", syscall[i].name,syscall[i].per_time);
 		exit(0);
 		
 	}
